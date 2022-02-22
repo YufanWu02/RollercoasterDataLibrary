@@ -8,9 +8,12 @@ var speed = getColumn(url, 8);
 var height = getColumn (url, 7);
 var inversion = getColumn (url, 10);
 
-//Finds which country has what rollercoasters.
-//country {string} - a country to get the corresponding rollercoaster in the country.
-//return {string} - rollercoasters in the country given.
+/**
+Returns all rollercoasters in the specified country.
+@param country {string} - a country to get the corresponding rollercoaster in the country.
+@return return {string} - rollercoasters in the country given.
+*/
+
 function getRollercoasterByCountry(country){
   country = country.toLowerCase();
   var rollercoaster = [];
@@ -29,9 +32,11 @@ function getRollercoasterByCountry(country){
 console.log(getRollercoasterByCountry("peru"));
 
 
-//Finds which city has what rollercoasters.
-//city {string} - a city to get the corresponding rollercoaster in the city.
-//return {string} - rollercoasters in the city given.
+/**
+Returns all rollercoasters in the specified city.
+@param city {string} - a city to get the corresponding rollercoaster in the city.
+@return return {string} - rollercoasters in the city given.
+*/
 function getRollercoasterByCity(city){
   city = city.toLowerCase();
   var rollercoaster = [];
@@ -52,10 +57,13 @@ function getRollercoasterByCity(city){
   console.log(coasters[i]);
 }
 
-//Decides if a rollercoaster is opened between the year ranged. 
-//min {number} - The earliest time to check if a rollercoaster has opened. 
-//max {number} - The latest time to check if a rollercoaster has opened. 
-//return {string} - rollercoasters opened in the year range. 
+/**
+Returns all rollercoasters opened between the year ranged. 
+@param min {number} - The earliest time to check if a rollercoaster has opened. 
+@param max {number} - The latest time to check if a rollercoaster has opened. 
+@return return {string} - rollercoasters opened in the year range. 
+*/
+
 function getRollercoasterByYearRange(min,max){
   var rollercoaster = [];
   for (var i = 0; i<yearOpened.length; i++){
@@ -73,9 +81,10 @@ function getRollercoasterByYearRange(min,max){
 console.log(getRollercoasterByYearRange(2004,2004));
 
 
-
-//Decides the average speed of all the rollercoaster listed.
-//return {number} - average speed of all the rollercoaster in the table. 
+/**
+Return the average speed of all the rollercoaster listed.
+@return return {number} - average speed of all the rollercoaster in the table. 
+*/
 function findAverageSpeed(){
   var total = 0;
   for (var i=0; i < speed.length; i++){
@@ -89,14 +98,17 @@ console.log(findAverageSpeed());
 
 
 
-//Decides if a rollercoaster has inversion or no and if its height is above the given height. 
-//inversion {boolean} - whether a rollercoaster has inversion or no. 
-//heights {number} - The height of a rollercoaster to check.
-//return {string} - rollercoasters fit the inversion option and heights given.
+/**
+Decides if a rollercoaster has inversion or no and if its height is above the given height. 
+@param inversion {boolean} - whether a rollercoaster has inversion or no. 
+@param heights {number} - The height of a rollercoaster to check.
+@return return {string} - rollercoasters fit the inversion option and heights given.
+*/
+
 function getRollercoasterByInversionAndHeight(inversions, heights){
   var rollercoaster = [];
   for (var i=0; i < inversion.length && i < height.length; i++){
-  if (inversion[i] == inversions && height[i] > heights) {
+  if (inversion[i].toLowerCase() == inversions.toLowerCase() && height[i] > heights) {
     rollercoaster.push(rollercoasterName[i]);
   }
 }
@@ -108,4 +120,4 @@ function getRollercoasterByInversionAndHeight(inversions, heights){
   }
 }
 console.log("Rollercoaster that have match inversion and height:");
-console.log(getRollercoasterByInversionAndHeight("No", 200));
+console.log(getRollercoasterByInversionAndHeight("no", 20));
