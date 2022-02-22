@@ -1,5 +1,6 @@
 # RollercoasterDataLibrary
-These are the functions that helps to find various rollercoasters based on different standards. 
+These are the functions that help to find various rollercoasters based on different criteria. 
+#
 
 #### Returns all rollercoasters in the specified country.
 ##### @param country {string} - a country to get the corresponding rollercoaster in the country.
